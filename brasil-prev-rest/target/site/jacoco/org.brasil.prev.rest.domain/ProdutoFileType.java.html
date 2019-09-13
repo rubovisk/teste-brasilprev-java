@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProdutoFileType.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">brasil-prev-rest</a> &gt; <a href="index.source.html" class="el_package">org.brasil.prev.rest.domain</a> &gt; <span class="el_source">ProdutoFileType.java</span></div><h1>ProdutoFileType.java</h1><pre class="source lang-java linenums">package org.brasil.prev.rest.domain;
+
+import org.springframework.web.multipart.MultipartFile;
+
+<span class="fc" id="L5">public class ProdutoFileType {</span>
+	private Integer idCategoria;
+	private String produto;
+	private Double preco;
+	private Integer quantidade;
+	private String descricao;
+	private MultipartFile file;
+	
+	public MultipartFile getFile() {
+<span class="nc" id="L14">		return file;</span>
+	}
+	public void setFile(MultipartFile file) {
+<span class="nc" id="L17">		this.file = file;</span>
+<span class="nc" id="L18">	}</span>
+	public Integer getIdCategoria() {
+<span class="nc" id="L20">		return idCategoria;</span>
+	}
+	public void setIdCategoria(Integer idCategoria) {
+<span class="nc" id="L23">		this.idCategoria = idCategoria;</span>
+<span class="nc" id="L24">	}</span>
+	public String getProduto() {
+<span class="nc" id="L26">		return produto;</span>
+	}
+	public void setProduto(String produto) {
+<span class="nc" id="L29">		this.produto = produto;</span>
+<span class="nc" id="L30">	}</span>
+	public Double getPreco() {
+<span class="nc" id="L32">		return preco;</span>
+	}
+	public void setPreco(Double preco) {
+<span class="nc" id="L35">		this.preco = preco;</span>
+<span class="nc" id="L36">	}</span>
+	public Integer getQuantidade() {
+<span class="nc" id="L38">		return quantidade;</span>
+	}
+	public void setQuantidade(Integer quantidade) {
+<span class="nc" id="L41">		this.quantidade = quantidade;</span>
+<span class="nc" id="L42">	}</span>
+	public String getDescricao() {
+<span class="nc" id="L44">		return descricao;</span>
+	}
+	public void setDescricao(String descricao) {
+<span class="nc" id="L47">		this.descricao = descricao;</span>
+<span class="nc" id="L48">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

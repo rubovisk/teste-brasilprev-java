@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProdutoController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">brasil-prev-rest</a> &gt; <a href="index.source.html" class="el_package">org.brasil.prev.rest.application</a> &gt; <span class="el_source">ProdutoController.java</span></div><h1>ProdutoController.java</h1><pre class="source lang-java linenums">package org.brasil.prev.rest.application;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.validation.Valid;
+
+import org.brasil.prev.rest.domain.ProdutoFileType;
+import org.brasil.prev.rest.entity.Cliente;
+import org.brasil.prev.rest.entity.Produto;
+import org.brasil.prev.rest.service.ProdutoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+@RestController
+@RequestMapping(path = &quot;/products&quot;)
+<span class="fc" id="L31">public class ProdutoController {</span>
+	@Autowired
+	private ProdutoService service;
+
+	@GetMapping(path = &quot;/all&quot;)
+	public @ResponseBody List&lt;Produto&gt; getAllProducts() {
+<span class="fc" id="L37">		return service.getAllProducts();</span>
+	}
+	
+	@GetMapping(path=&quot;/{id}&quot;)
+	public @ResponseBody Produto getProductById(@PathVariable String id) {
+		try {
+<span class="fc" id="L43">			return service.getProductById(Long.parseLong(id));</span>
+<span class="fc" id="L44">		} catch(NumberFormatException ex) {</span>
+<span class="fc" id="L45">			return null;</span>
+		}
+	}
+
+	@PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public Produto addProduct(MultipartFile file, ProdutoFileType produto) throws IOException {
+<span class="fc" id="L51">		return service.saveProduct(produto);</span>
+	}
+
+	@PutMapping(path = &quot;/{id}&quot;)
+	public ResponseEntity&lt;Produto&gt; updateProduct(@PathVariable Long id, @Valid @RequestBody Produto produto) {
+<span class="fc" id="L56">		Produto p = service.getProductById(id);</span>
+
+<span class="fc bfc" id="L58" title="All 2 branches covered.">		if (p == null) {</span>
+<span class="fc" id="L59">			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();</span>
+		}
+
+<span class="fc" id="L62">		p.setDescricao(produto.getDescricao());</span>
+<span class="fc" id="L63">		p.setIdCategoria(produto.getIdCategoria());</span>
+<span class="fc" id="L64">		p.setPreco(produto.getPreco());</span>
+<span class="fc" id="L65">		p.setProduto(produto.getProduto());</span>
+<span class="fc" id="L66">		p.setQuantidade(produto.getQuantidade());</span>
+
+<span class="fc" id="L68">		return ResponseEntity.ok(service.saveProduct(p));</span>
+
+	}
+	
+	@DeleteMapping(path=&quot;/{id}&quot;)
+	public Map&lt;String, Boolean&gt; deleteProduct(@PathVariable Long id) {
+<span class="fc" id="L74">		Map&lt;String, Boolean&gt; response = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L75">		Produto p = service.getProductById(id);</span>
+		
+<span class="fc bfc" id="L77" title="All 2 branches covered.">		if(p == null) {</span>
+<span class="fc" id="L78">			response.put(&quot;excluido&quot;, Boolean.FALSE);</span>
+<span class="fc" id="L79">			return response;</span>
+		}
+<span class="fc" id="L81">		service.deleteProduct(p);</span>
+		
+	
+<span class="fc" id="L84">		response.put(&quot;excluido&quot;, Boolean.TRUE);</span>
+<span class="fc" id="L85">		return response;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

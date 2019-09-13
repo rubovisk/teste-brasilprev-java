@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Pedido.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">brasil-prev-rest</a> &gt; <a href="index.source.html" class="el_package">org.brasil.prev.rest.entity</a> &gt; <span class="el_source">Pedido.java</span></div><h1>Pedido.java</h1><pre class="source lang-java linenums">package org.brasil.prev.rest.entity;
+
+import java.sql.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name=&quot;pedidos&quot;)
+<span class="fc" id="L14">public class Pedido {</span>
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name=&quot;idpedido&quot;)
+	private Long idPedido;
+	@Column(name=&quot;data&quot;)
+	private Date data;
+	@Column(name=&quot;idcliente&quot;)
+	private Integer idCliente;
+	@Column(name=&quot;status&quot;)
+	private String status;
+	@Column(name=&quot;sessao&quot;)
+	private String sessao;
+	
+	public Long getIdPedido() {
+<span class="nc" id="L29">		return idPedido;</span>
+	}
+	public void setIdPedido(Long idPedido) {
+<span class="nc" id="L32">		this.idPedido = idPedido;</span>
+<span class="nc" id="L33">	}</span>
+	public Date getData() {
+<span class="nc" id="L35">		return data;</span>
+	}
+	public void setData(Date data) {
+<span class="nc" id="L38">		this.data = data;</span>
+<span class="nc" id="L39">	}</span>
+	public Integer getIdCliente() {
+<span class="nc" id="L41">		return idCliente;</span>
+	}
+	public void setIdCliente(Integer idCliente) {
+<span class="nc" id="L44">		this.idCliente = idCliente;</span>
+<span class="nc" id="L45">	}</span>
+	public String getStatus() {
+<span class="nc" id="L47">		return status;</span>
+	}
+	public void setStatus(String status) {
+<span class="nc" id="L50">		this.status = status;</span>
+<span class="nc" id="L51">	}</span>
+	public String getSessao() {
+<span class="nc" id="L53">		return sessao;</span>
+	}
+	public void setSessao(String sessao) {
+<span class="nc" id="L56">		this.sessao = sessao;</span>
+<span class="nc" id="L57">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Cliente.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">brasil-prev-rest</a> &gt; <a href="index.source.html" class="el_package">org.brasil.prev.rest.entity</a> &gt; <span class="el_source">Cliente.java</span></div><h1>Cliente.java</h1><pre class="source lang-java linenums">package org.brasil.prev.rest.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name=&quot;clientes&quot;)
+<span class="fc" id="L12">public class Cliente {</span>
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name=&quot;idcliente&quot;)
+	private Long idCliente;
+	@Column(name=&quot;nome&quot;)
+	private String userName;
+	@Column(name=&quot;email&quot;)
+	private String email;
+	@Column(name=&quot;senha&quot;)
+	private String senha;
+	@Column(name=&quot;rua&quot;)
+	private String rua;
+	@Column(name=&quot;cidade&quot;)
+	private String cidade;
+	@Column(name=&quot;bairro&quot;)
+	private String bairro;
+	@Column(name=&quot;cep&quot;)
+	private String cep;
+	@Column(name=&quot;estado&quot;)
+	private String estado;
+	
+	public Long getIdCliente() {
+<span class="fc" id="L35">		return idCliente;</span>
+	}
+	public void setIdCliente(Long idCliente) {
+<span class="nc" id="L38">		this.idCliente = idCliente;</span>
+<span class="nc" id="L39">	}</span>
+	public String getUserName() {
+<span class="fc" id="L41">		return userName;</span>
+	}
+	public void setNome(String userName) {
+<span class="nc" id="L44">		this.userName = userName;</span>
+<span class="nc" id="L45">	}</span>
+	public String getEmail() {
+<span class="fc" id="L47">		return email;</span>
+	}
+	public void setEmail(String email) {
+<span class="fc" id="L50">		this.email = email;</span>
+<span class="fc" id="L51">	}</span>
+	public String getSenha() {
+<span class="fc" id="L53">		return senha;</span>
+	}
+	public void setSenha(String senha) {
+<span class="fc" id="L56">		this.senha = senha;</span>
+<span class="fc" id="L57">	}</span>
+	public String getRua() {
+<span class="fc" id="L59">		return rua;</span>
+	}
+	public void setRua(String rua) {
+<span class="fc" id="L62">		this.rua = rua;</span>
+<span class="fc" id="L63">	}</span>
+	public String getCidade() {
+<span class="fc" id="L65">		return cidade;</span>
+	}
+	public void setCidade(String cidade) {
+<span class="fc" id="L68">		this.cidade = cidade;</span>
+<span class="fc" id="L69">	}</span>
+	public String getBairro() {
+<span class="fc" id="L71">		return bairro;</span>
+	}
+	public void setBairro(String bairro) {
+<span class="fc" id="L74">		this.bairro = bairro;</span>
+<span class="fc" id="L75">	}</span>
+	public String getCep() {
+<span class="fc" id="L77">		return cep;</span>
+	}
+	public void setCep(String cep) {
+<span class="fc" id="L80">		this.cep = cep;</span>
+<span class="fc" id="L81">	}</span>
+	public String getEstado() {
+<span class="fc" id="L83">		return estado;</span>
+	}
+	public void setEstado(String estado) {
+<span class="fc" id="L86">		this.estado = estado;</span>
+<span class="fc" id="L87">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>
